@@ -15,7 +15,7 @@ def login_user(request):
     '''Handles the authentication of a user
 
     Method arguments:
-      request -- The full HTTP request object
+        request -- The full HTTP request object
     '''
     email = request.data['email']
     password = request.data['password']
@@ -45,7 +45,7 @@ def register_user(request):
     '''Handles the creation of a new user for authentication
 
     Method arguments:
-      request -- The full HTTP request object
+        request -- The full HTTP request object
     '''
     account_type = request.data.get('account_type', None)
     email = request.data.get('email', None)
@@ -118,4 +118,7 @@ def register_user(request):
         data = { 'token': token.key, 'staff': new_user.is_staff }
         return Response(data)
 
-    return Response({'message': 'You must provide email, password, first_name, last_name and account_type'}, status=status.HTTP_400_BAD_REQUEST)
+    return Response(
+        {'message':
+            'You must provide email, password, first_name, last_name and account_type'
+            }, status=status.HTTP_400_BAD_REQUEST)
