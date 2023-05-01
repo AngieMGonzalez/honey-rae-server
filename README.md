@@ -17,3 +17,9 @@
 - Many to Many Relationships - How to set up - a Many-Many Relationship
 - check what version of python `python manage.py version` 
 - I'm running 4.2 right now
+
+-packages are imported and defining routes
+
+# CREATE POST reminder
+- Now that you have a model, a view, a serializer, and the URL defining the route for 
+[resource], the final step is to create a [resource] or two and then get them.
