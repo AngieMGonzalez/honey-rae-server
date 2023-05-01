@@ -18,8 +18,19 @@
 - check what version of python `python manage.py version` 
 - I'm running 4.2 right now
 
--packages are imported and defining routes
+- packages are imported and defining routes
 
 # CREATE POST reminder
 - Now that you have a model, a view, a serializer, and the URL defining the route for 
 [resource], the final step is to create a [resource] or two and then get them.
+
+# Fixtures
+- JSON files that contain some data for your database. Useful for initial creation of a development database, or for testing.
+- set up your project with some fixtures so that you can provide some *initial, or seed, data* for your database, without the need to write any INSERT INTO statements in a SQL file
+- https://docs.djangoproject.com/en/4.2/howto/initial-data/
+- we are adding fixtures in JSON
+- add info on `seed_database.sh` file
+- https://github.com/nashville-software-school/bangazon-llc/blob/cohort-62/book-3-levelup/chapters/HR_SEED_DB.md
+- `chmod u+x ./seed_database.sh` to make executable script
+- https://linuxhandbook.com/make-file-executable/
+- then run `./seed_database.sh` to install fixtures
