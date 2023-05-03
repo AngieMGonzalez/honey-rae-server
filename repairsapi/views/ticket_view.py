@@ -10,6 +10,26 @@ from repairsapi.models import Customer
 class TicketView(ViewSet):
     """Honey Rae API service tix view"""
 
+    def create(self, request):
+        """Handle POST requests for service tickets
+
+        Returns:
+            Response: JSON serialized representation of newly created service ticket
+        """
+        # using model here
+        new_ticket = ServiceTicket()
+        # request.auth.user is a black box
+        new_ticket.customer = Customer.objects.get(user=request.auth.user)
+        # stepping inside of data
+        new_ticket.description = request.data['description']
+        new_ticket.emergency = request.data['emergency']
+        new_ticket.save()
+
+        # steve called it ServiceTicketSerializer
+        serialized = TicketSerializer(new_ticket)
+
+        return Response(serialized.data, status=status.HTTP_201_CREATED)
+
     def list(self, request):
         """Handle GET requests to get all service tix
 

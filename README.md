@@ -47,3 +47,8 @@ So far we’ve set up the view and serializer but not which URL to use for the v
 
 # Notes
 - migrate the models 
+- install fixtures 
+- Django ORM stands for Object-Relational Mapping
+
+## Create POST
+- https://watch.screencastify.com/v/rxH1ZRZnCJ627PMLHVZz
