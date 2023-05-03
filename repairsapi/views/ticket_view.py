@@ -40,8 +40,18 @@ class TicketView(ViewSet):
         # service_tickets = ServiceTicket.objects.all()
 
         service_tickets = []
+
         if request.auth.user.is_staff:
             service_tickets = ServiceTicket.objects.all()
+
+            # Check if there is a query string parameter
+            if "status" in request.query_params:
+                if request.query_params['status'] == "done":
+                    # If there is, and its value is "done",
+                    # use the ORM to query the database for only those ticket that have a completion date.
+                    service_tickets = service_tickets.filter(date_completed__isnull=False)
+                    # If there is, and its value is "all", use the ORM to query the database for all # tickets.
+                    # If there is no query string parameter, return all tickets.
         else:
             service_tickets = ServiceTicket.objects.filter(customer__user=request.auth.user)
 
