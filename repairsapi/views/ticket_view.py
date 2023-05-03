@@ -4,7 +4,8 @@ from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
 from rest_framework import serializers, status
 from repairsapi.models import ServiceTicket
-
+from repairsapi.models import Employee
+from repairsapi.models import Customer
 
 class TicketView(ViewSet):
     """Honey Rae API service tix view"""
@@ -38,10 +39,27 @@ class TicketView(ViewSet):
         serialized = TicketSerializer(ticket)
         return Response(serialized.data, status=status.HTTP_200_OK)
 
+class TicketEmployeeSerializer(serializers.ModelSerializer):
+    #meta class
+    class Meta:
+        model = Employee
+        fields = ('id', 'specialty', 'full_name')
+
+
+class TicketCustomerSerializer(serializers.ModelSerializer):
+    #meta class
+    class Meta:
+        model = Customer
+        fields = ('id', 'address', 'full_name')
+
 
 class TicketSerializer(serializers.ModelSerializer):
     """JSON serializer for service tix"""
+    employee = TicketEmployeeSerializer(many=False)
+    customer = TicketCustomerSerializer(many=False)
     class Meta:
         model = ServiceTicket
         fields = ( 'id', 'description', 'emergency', 'date_completed', 'employee', 'customer', )
+        # depth is the nuclear option to expand any foreign key
+        # how many levels deep
         depth = 1

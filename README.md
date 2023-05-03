@@ -38,3 +38,12 @@
 ## getting all customers from api 
 - Adding the URL
 So far we’ve set up the view and serializer but not which URL to use for the view. We need to add /customers to be supported by the API.
+
+## React App
+- https://github.com/nashville-software-school/honey-rae-react18
+
+# Serialization cont
+- https://watch.screencastify.com/v/CJPF5fiVlqsZH8nxo892 
+
+# Notes
+- migrate the models 
