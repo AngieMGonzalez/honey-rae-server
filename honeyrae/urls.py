@@ -24,7 +24,7 @@ from repairsapi.views import (CustomerView, EmployeeView, TicketView)
 router = routers.DefaultRouter(trailing_slash=False)
 router.register(r'customers', CustomerView, 'customer')
 router.register(r'employees', EmployeeView, 'employee')
-router.register(r'serviceTickets', TicketView, 'serve tix')
+router.register(r'tickets', TicketView, 'serve tix')
 
 urlpatterns = [
     # Requests to http://localhost:8000/register 
