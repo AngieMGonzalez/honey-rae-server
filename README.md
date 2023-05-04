@@ -52,3 +52,6 @@ So far we’ve set up the view and serializer but not which URL to use for the v
 
 ## Create POST
 - https://watch.screencastify.com/v/rxH1ZRZnCJ627PMLHVZz
+
+## assign ticket to employee PUT
+- https://watch.screencastify.com/v/5oNNY4bLlgCoLVUfP6A0 
