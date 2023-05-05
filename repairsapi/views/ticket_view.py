@@ -1,14 +1,28 @@
 """View module for handling requests for service ticket data"""
+# from datetime import datetime # steve has this line
 from django.http import HttpResponseServerError
 from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
 from rest_framework import serializers, status
-from repairsapi.models import ServiceTicket
-from repairsapi.models import Employee
-from repairsapi.models import Customer
-
+from repairsapi.models import ServiceTicket, Customer, Employee
 class TicketView(ViewSet):
     """Honey Rae API service tix view"""
+
+    def destroy(self, request, pk=None):
+        """Handle DELETE requests replaces for service tickets
+
+        Returns:
+            Response: None with 204 status code
+        """
+        # first, find the ticket
+        # pk is at end of URL
+        ticket = ServiceTicket.objects.get(pk=pk)
+        # invoke the ORM method of delete
+        ticket.delete()
+        # send a response, we dont need to serialize anything
+        # bc 204 means nobody
+        return Response(None, status=status.HTTP_204_NO_CONTENT)
+
 
     def create(self, request):
         """Handle POST requests for service tickets

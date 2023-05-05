@@ -39,8 +39,11 @@
 - Adding the URL
 So far we’ve set up the view and serializer but not which URL to use for the view. We need to add /customers to be supported by the API.
 
-## React App
+## React App Origins
 - https://github.com/nashville-software-school/honey-rae-react18
+
+# My Client Side Code
+- https://github.com/AngieMGonzalez/honey-rae-react-client
 
 # Serialization cont
 - https://watch.screencastify.com/v/CJPF5fiVlqsZH8nxo892 
@@ -55,3 +58,6 @@ So far we’ve set up the view and serializer but not which URL to use for the v
 
 ## assign ticket to employee PUT
 - https://watch.screencastify.com/v/5oNNY4bLlgCoLVUfP6A0 
+
+## DELETE
+- https://watch.screencastify.com/v/AHeaaMJcycJmsWyMXKTf
